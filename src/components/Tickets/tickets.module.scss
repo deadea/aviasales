@@ -1,0 +1,73 @@
+@import '../../assets/colors.scss';
+
+.ticket_card {
+  margin: 20px;
+  padding: 20px;
+  width: 462px;
+  height: 144px;
+  background: $secondaryBgColor;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.header > span {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  color: $accentColor;
+}
+.segments {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.onward,
+.backward {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.onward {
+  margin-bottom: 10px;
+}
+.timing,
+.total,
+.layovers {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+
+  color: $mainTextColor;
+}
+.timing > span:first-child,
+.total > span:first-child,
+.layovers > span:first-child {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: $secondaryTextColor;
+}
+@media (min-width: 320px) and (max-width: 800px) {
+  .ticket_card {
+    max-width: 300px;
+    padding: 5px;
+  }
+}

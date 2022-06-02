@@ -1,0 +1,50 @@
+@import '../../assets/colors.scss';
+
+.btn {
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  padding: 15px;
+  width: 168px;
+  margin-right: -1px;
+
+  background-color: #ffffff;
+  border: 1px solid #dfe5ec;
+
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.btn:hover,
+.btn:active {
+  background-color: $accentColor;
+  color: #ffffff;
+  border: 1px solid $accentColor;
+}
+
+.btn:first-of-type {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.btn:last-of-type {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 800px) {
+  .btn {
+    width: 124px;
+    padding: 3px;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 300px;
+  }
+}

@@ -1,0 +1,50 @@
+@import '../../assets/colors.scss';
+
+.container {
+  width: 192px;
+  height: 212px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $secondaryBgColor;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.title {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.container > label {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  padding-left: 30px;
+}
+.checkInput {
+  appearance: none;
+}
+.checkBox {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../assets/Checkbox.svg');
+  margin-left: -30px;
+}
+.checkInput:checked + .checkBox {
+  background-image: url('../../assets/Checkbox_checked.svg');
+}
+.checkInput:focus + .checkBox {
+  box-shadow: 0px 2px 3px rgba(18, 31, 214, 0.3);
+}
+.option {
+  margin-bottom: 10px;
+}
+.option:last-of-type {
+  margin-bottom: 0px;
+}

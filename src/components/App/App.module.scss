@@ -1,0 +1,40 @@
+@import '../../assets/colors.scss';
+
+body {
+  background-color: $mainBgColor;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+  font-style: normal;
+  color: $mainTextColor;
+}
+
+.wrapper {
+  //padding: 160px 100px;
+  margin: 0 auto;
+  margin-top: 160px;
+  //width: 800px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container_right {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 320px) and (max-width: 800px) {
+  .wrapper {
+    margin-top: 120px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
