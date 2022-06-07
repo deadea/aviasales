@@ -1,0 +1,25 @@
+.option {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  padding-left: 30px;
+}
+.checkInput {
+  appearance: none;
+}
+.checkBox {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../assets/Checkbox.svg');
+  margin-left: -30px;
+}
+.checkInput:checked + .checkBox {
+  background-image: url('../../assets/Checkbox_checked.svg');
+}
+.option {
+  margin-bottom: 10px;
+}
+.option:last-of-type {
+  margin-bottom: 0px;
+}

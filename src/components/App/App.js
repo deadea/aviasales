@@ -1,25 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Logo from '../Logo/Logo';
 import LegFilter from '../LegFilter';
-import PriceFilter from '../PriceFilter';
+import SortFilter from '../SortFilter';
 import Tickets from '../Tickets';
 import LoadBtn from '../LoadBtn';
+import NoResult from '../NoResult';
 
 import classes from './App.module.scss';
 
-const App = () => {
+const App = ({ state }) => {
+  const content = state.checked.length ? <Tickets /> : <NoResult />;
   return (
     <div className={classes.wrapper}>
       <Logo />
       <LegFilter />
       <div className={classes.container_right}>
-        <PriceFilter />
-        <Tickets />
+        <SortFilter />
+        {content}
         <LoadBtn />
       </div>
     </div>
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    state,
+  };
+};
+
+export default connect(mapStateToProps)(App);

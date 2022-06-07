@@ -1,33 +1,19 @@
 import React from 'react';
 
+import Filter from '../Filter';
+
 import classes from './legFilter.module.scss';
+import { filterData } from './filterData';
 
 const LegFilter = () => {
+  const filters = filterData.map((item, idx) => {
+    return <Filter text={item} key={idx} idx={idx} />;
+  });
+
   return (
     <div className={classes.container}>
       <span className={classes.title}>Количество пересадок</span>
-      <label className={classes.option}>
-        <input className={classes.checkInput} type="checkbox" />
-        <span className={classes.checkBox}></span>
-        Все
-      </label>
-      <label className={classes.option}>
-        <input className={classes.checkInput} type="checkbox" />
-        <span className={classes.checkBox}></span>
-        Без пересадок
-      </label>
-      <label className={classes.option}>
-        <input className={classes.checkInput} type="checkbox" />
-        <span className={classes.checkBox}></span>1 пересадка
-      </label>
-      <label className={classes.option}>
-        <input className={classes.checkInput} type="checkbox" />
-        <span className={classes.checkBox}></span>2 пересадки
-      </label>
-      <label className={classes.option}>
-        <input className={classes.checkInput} type="checkbox" />
-        <span className={classes.checkBox}></span>3 пересадки
-      </label>
+      {filters}
     </div>
   );
 };
