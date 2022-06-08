@@ -20,8 +20,11 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.btn:hover,
+.btn:hover {
+  background-color: $hoverBgColor,
+}
 .btn:active,
+.active.btn:hover,
 .active {
   background-color: $accentColor;
   color: #ffffff;

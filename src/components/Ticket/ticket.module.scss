@@ -1,7 +1,7 @@
 @import '../../assets/colors.scss';
 
 .ticket_card {
-  margin: 20px;
+  margin-bottom: 20px;
   padding: 20px;
   width: 462px;
   height: 144px;
@@ -12,6 +12,9 @@
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
+}
+.ticket_card:last-of-type{
+  margin-bottom: 0;
 }
 .header {
   display: flex;
@@ -25,6 +28,10 @@
   font-size: 24px;
   line-height: 24px;
   color: $accentColor;
+}
+.header > span:after {
+  content: "Р";
+  margin-left: 5px;
 }
 .segments {
   display: flex;

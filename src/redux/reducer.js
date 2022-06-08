@@ -1,6 +1,8 @@
 const defaultState = {
   checked: ['1', '2'],
   sortBy: '',
+  data: [],
+  visibleTickets: 5,
 };
 
 const filtersInfo = (state = defaultState, actions) => {
@@ -33,6 +35,11 @@ const filtersInfo = (state = defaultState, actions) => {
       return {
         ...state,
         sortBy: actions.payload,
+      };
+    case 'LOAD_DATA':
+      return {
+        ...state,
+        data: [...state.data, ...actions.payload],
       };
     default:
       return state;
