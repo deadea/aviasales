@@ -17,7 +17,6 @@ const App = ({ state, loadData }) => {
   const [searchId, setSearchId] = useState();
   const [stop, setStop] = useState(false);
   useEffect(() => {
-    console.log('mount');
     apiService.getSearchId().then((result) => {
       setSearchId(result.searchId);
     });
@@ -28,16 +27,13 @@ const App = ({ state, loadData }) => {
       const loadTickets = async () => {
         const response = await apiService.getTickets(searchId);
         if (response.status !== 200) {
-          //console.log('!==200');
           await loadTickets();
         }
         if (response.status === 200) {
           let data = await response.json();
           if (data.stop) {
-            console.log('stop');
             setStop(true);
           } else if (data.tickets.length > 0) {
-            //console.log(data.tickets);
             loadData(data.tickets);
           }
         }

@@ -30,7 +30,7 @@ const TicketList = ({ state }) => {
     for (let i = 0; i < state.checked.length; i++) {
       for (let j = 0; j < state.data.length; j++) {
         if (
-          state.data[j].segments[0].stops.length === parseInt(state.checked[i] - 1) &&
+          state.data[j].segments[0].stops.length === parseInt(state.checked[i] - 1) ||
           state.data[j].segments[1].stops.length === parseInt(state.checked[i] - 1)
         ) {
           unfiltered.push(state.data[j]);
