@@ -10,6 +10,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
+  text-align: center;
 }
 .message {
   font-weight: 600;
@@ -18,9 +19,9 @@
   color: $accentColor;
 }
 
-@media (min-width: 320px) and (max-width: 800px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .container {
-    max-width: 300px;
+    width: auto;
     padding: 5px;
   }
 }

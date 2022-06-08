@@ -1,8 +1,8 @@
-@media (min-width: 320px) and (max-width: 800px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 300px;
+    justify-content: space-between;
   }
 }

@@ -33,7 +33,6 @@ const App = ({ state, loadData }) => {
         }
         if (response.status === 200) {
           let data = await response.json();
-          console.log(data.stop);
           if (data.stop) {
             console.log('stop');
             setStop(true);
@@ -58,7 +57,7 @@ const App = ({ state, loadData }) => {
     <div className={classes.wrapper}>
       <Logo />
       <LegFilter />
-      <div className={classes.container_right}>
+      <div className={classes.container}>
         <SortFilter />
         {!stop && <Spinner />}
         {content}

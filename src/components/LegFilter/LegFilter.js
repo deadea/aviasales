@@ -3,10 +3,10 @@ import React from 'react';
 import Filter from '../Filter';
 
 import classes from './legFilter.module.scss';
-import { filterData } from './filterData';
+import { FILTER_DATA } from './filterData';
 
 const LegFilter = () => {
-  const filters = filterData.map((item, idx) => {
+  const filters = FILTER_DATA.map((item, idx) => {
     return <Filter text={item} key={idx} idx={idx} />;
   });
 

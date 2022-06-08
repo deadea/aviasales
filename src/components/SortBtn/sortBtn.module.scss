@@ -6,12 +6,8 @@
   border: none;
   border-radius: 0;
   padding: 15px;
-  width: 168px;
-  margin-right: -1px;
-
+  width: 167px;
   background-color: #ffffff;
-  border: 1px solid #dfe5ec;
-
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
@@ -19,6 +15,8 @@
   line-height: 20px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  border-top: 1px solid #dfe5ec;
+  border-bottom: 1px solid #dfe5ec;
 }
 .btn:hover {
   background-color: $hoverBgColor;
@@ -28,21 +26,26 @@
 .active {
   background-color: $accentColor;
   color: #ffffff;
-  border: 1px solid $accentColor;
+  border-color: $accentColor;
 }
 
 .btn:first-of-type {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  border: 1px solid #dfe5ec;
 }
 .btn:last-of-type {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  border: 1px solid #dfe5ec;
 }
 
-@media (min-width: 320px) and (max-width: 800px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .btn {
-    width: 124px;
-    padding: 3px;
+    padding: 3px 0;
+    width: 104px;
+    line-height: 16px;
+    font-size: 10px;
+    letter-spacing: normal;
   }
 }

@@ -4,18 +4,12 @@
   appearance: none;
   cursor: pointer;
   border: none;
-  border-radius: 0;
   padding: 15px;
   margin-bottom: 20px;
-
-  width: 502px;
-  height: 50px;
-
+  width: 100%;
   border-radius: 5px;
-
   background-color: $accentColor;
   color: #ffffff;
-
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
@@ -26,7 +20,7 @@
 }
 @media (min-width: 320px) and (max-width: 800px) {
   .btn {
-    width: 80%;
     padding: 5px;
+    width: 75%;
   }
 }

@@ -72,9 +72,25 @@
 
   color: $secondaryTextColor;
 }
-@media (min-width: 320px) and (max-width: 800px) {
+@media (min-width: 320px) and (max-width: 567px) {
   .ticket_card {
-    max-width: 300px;
-    padding: 5px;
+    width: 85%;
+    height: 145px;
+    padding: 7px;
+    justify-content: flex-start;
+  }
+  .timing,
+  .total,
+  .layovers {
+    width: 33%;
+  }
+  .onward,
+  .backward {
+    text-align: center;
+  }
+}
+@media (min-width: 568px) and (max-width: 767px) {
+  .ticket_card {
+    width: 70%;
   }
 }
