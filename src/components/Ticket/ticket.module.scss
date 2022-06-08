@@ -13,7 +13,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
 }
-.ticket_card:last-of-type{
+.ticket_card:last-of-type {
   margin-bottom: 0;
 }
 .header {
@@ -30,7 +30,7 @@
   color: $accentColor;
 }
 .header > span:after {
-  content: "Р";
+  content: 'Р';
   margin-left: 5px;
 }
 .segments {

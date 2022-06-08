@@ -41,6 +41,11 @@ const filtersInfo = (state = defaultState, actions) => {
         ...state,
         data: [...state.data, ...actions.payload],
       };
+    case 'LOAD_MORE':
+      return {
+        ...state,
+        visibleTickets: state.visibleTickets + 5,
+      };
     default:
       return state;
   }

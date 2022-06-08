@@ -46,6 +46,7 @@ const App = ({ state, loadData }) => {
       loadTickets();
     }
   }, [searchId, state.data]);
+
   const content = state.checked.length ? (
     <>
       <TicketList /> <LoadBtn />
