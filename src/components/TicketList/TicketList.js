@@ -1,12 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Ticket from '../Ticket';
 import { FILTER_ACTIONS } from '../../redux/filterActions';
 
 import classes from './ticketList.module.scss';
 
-const TicketList = ({ state }) => {
+const TicketList = () => {
+  const state = useSelector((state) => state);
   const getCheap = (array) => {
     return array.sort((a, b) => {
       return a.price - b.price;
@@ -85,10 +86,4 @@ const TicketList = ({ state }) => {
   return <div className={classes.container}>{tickets}</div>;
 };
 
-const mapStateToProps = (state) => {
-  return {
-    state,
-  };
-};
-
-export default connect(mapStateToProps)(TicketList);
+export default TicketList;

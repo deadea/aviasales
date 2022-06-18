@@ -37,7 +37,6 @@ const filtersInfo = (state = defaultState, actions) => {
       };
     case FILTER_ACTIONS.UNCHECK:
       if (actions.payload === FILTER_ACTIONS.ALL) {
-        console.log('dll');
         return {
           ...state,
           checked: [],

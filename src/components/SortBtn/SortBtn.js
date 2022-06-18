@@ -1,23 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import * as actions from '../../redux/actions';
+import { sortBy } from '../../redux/actions';
 
 import classes from './sortBtn.module.scss';
 
-const SortBtn = ({ text, name, state, sortBy }) => {
-  let activeClass = state.sortBy === name && classes.active;
+const SortBtn = ({ text, name }) => {
+  const sort = useSelector((state) => state.sortBy);
+  let activeClass = sort === name && classes.active;
+  const dispatch = useDispatch();
   return (
-    <button className={`${classes.btn} ${activeClass}`} name={name} onClick={(e) => sortBy(e.target.name)}>
+    <button className={`${classes.btn} ${activeClass}`} name={name} onClick={(e) => dispatch(sortBy(e.target.name))}>
       {text}
     </button>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    state,
-  };
-};
-
-export default connect(mapStateToProps, actions)(SortBtn);
+export default SortBtn;

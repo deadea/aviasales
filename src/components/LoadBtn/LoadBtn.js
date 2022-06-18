@@ -1,22 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import * as actions from '../../redux/actions';
+import { loadMore } from '../../redux/actions';
 
 import classes from './loadBtn.module.scss';
 
-const LoadBtn = ({ loadMore }) => {
+const LoadBtn = () => {
+  const dispatch = useDispatch();
   return (
-    <button className={classes.btn} onClick={loadMore}>
+    <button className={classes.btn} onClick={() => dispatch(loadMore())}>
       показать еще 5 билетов!
     </button>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    state,
-  };
-};
-
-export default connect(mapStateToProps, actions)(LoadBtn);
+export default LoadBtn;

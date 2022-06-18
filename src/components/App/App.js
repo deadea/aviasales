@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Logo from '../Logo/Logo';
 import LegFilter from '../LegFilter';
@@ -9,11 +10,13 @@ import LoadBtn from '../LoadBtn';
 import NoResult from '../NoResult';
 import Spinner from '../Spinner';
 import apiService from '../../service/ApiService';
-import * as actions from '../../redux/actions';
+import { loadData } from '../../redux/actions';
 
 import classes from './App.module.scss';
 
-const App = ({ state, loadData }) => {
+const App = () => {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
   const [searchId, setSearchId] = useState();
   const [stop, setStop] = useState(false);
   useEffect(() => {
@@ -34,7 +37,7 @@ const App = ({ state, loadData }) => {
           if (data.stop) {
             setStop(true);
           } else if (data.tickets.length > 0) {
-            loadData(data.tickets);
+            dispatch(loadData(data.tickets));
           }
         }
       };
@@ -62,10 +65,4 @@ const App = ({ state, loadData }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    state,
-  };
-};
-
-export default connect(mapStateToProps, actions)(App);
+export default App;

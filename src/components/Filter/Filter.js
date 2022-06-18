@@ -1,12 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import * as actions from '../../redux/actions';
+import { check, unCheck } from '../../redux/actions';
 
 import classes from './Filter.module.scss';
 
-const Filter = ({ text, idx, state, name, check, unCheck }) => {
-  const [...checked] = state.checked;
+const Filter = ({ text, idx, name }) => {
+  const checkedState = useSelector((state) => state.checked);
+  const [...checked] = checkedState;
+  const dispatch = useDispatch();
   let isChecked = checked.length === 0 ? false : checked.includes(name);
   return (
     <>
@@ -16,7 +18,9 @@ const Filter = ({ text, idx, state, name, check, unCheck }) => {
           type="checkbox"
           name={name}
           checked={isChecked}
-          onChange={(e) => (e.target.checked ? check(e.target.name.toString()) : unCheck(e.target.name.toString()))}
+          onChange={(e) =>
+            e.target.checked ? dispatch(check(e.target.name.toString())) : dispatch(unCheck(e.target.name.toString()))
+          }
         />
         <span className={classes.checkBox}></span>
         {text}
@@ -25,10 +29,4 @@ const Filter = ({ text, idx, state, name, check, unCheck }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    state,
-  };
-};
-
-export default connect(mapStateToProps, actions)(Filter);
+export default Filter;
