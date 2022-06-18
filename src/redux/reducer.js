@@ -1,5 +1,7 @@
+import { FILTER_ACTIONS } from './filterActions';
+
 const defaultState = {
-  checked: ['1', '2'],
+  checked: [FILTER_ACTIONS.DIRECT, FILTER_ACTIONS.ONE_STOP],
   sortBy: '',
   data: [],
   visibleTickets: 5,
@@ -7,19 +9,35 @@ const defaultState = {
 
 const filtersInfo = (state = defaultState, actions) => {
   switch (actions.type) {
-    case 'CHECK':
-      if (actions.payload !== '0' && state.checked.length === 3) {
+    case FILTER_ACTIONS.CHECK:
+      if (actions.payload !== FILTER_ACTIONS.ALL && state.checked.length === 3) {
         return {
           ...state,
-          checked: ['0', '1', '2', '3', '4'],
+          checked: [
+            FILTER_ACTIONS.ALL,
+            FILTER_ACTIONS.DIRECT,
+            FILTER_ACTIONS.ONE_STOP,
+            FILTER_ACTIONS.TWO_STOPS,
+            FILTER_ACTIONS.THREE_STOPS,
+          ],
         };
       }
       return {
         ...state,
-        checked: actions.payload === '0' ? ['0', '1', '2', '3', '4'] : [...state.checked, actions.payload],
+        checked:
+          actions.payload === FILTER_ACTIONS.ALL
+            ? [
+                FILTER_ACTIONS.ALL,
+                FILTER_ACTIONS.DIRECT,
+                FILTER_ACTIONS.ONE_STOP,
+                FILTER_ACTIONS.TWO_STOPS,
+                FILTER_ACTIONS.THREE_STOPS,
+              ]
+            : [...state.checked, actions.payload],
       };
-    case 'UNCHECK':
-      if (actions.payload === '0') {
+    case FILTER_ACTIONS.UNCHECK:
+      if (actions.payload === FILTER_ACTIONS.ALL) {
+        console.log('dll');
         return {
           ...state,
           checked: [],
@@ -27,21 +45,21 @@ const filtersInfo = (state = defaultState, actions) => {
       }
       return {
         ...state,
-        checked: state.checked.includes('0')
+        checked: state.checked.includes(FILTER_ACTIONS.ALL)
           ? state.checked.slice(1).filter((item) => item !== actions.payload)
           : state.checked.filter((item) => item !== actions.payload),
       };
-    case 'SORT_BY':
+    case FILTER_ACTIONS.SORT_BY:
       return {
         ...state,
         sortBy: actions.payload,
       };
-    case 'LOAD_DATA':
+    case FILTER_ACTIONS.LOAD_DATA:
       return {
         ...state,
         data: [...state.data, ...actions.payload],
       };
-    case 'LOAD_MORE':
+    case FILTER_ACTIONS.LOAD_MORE:
       return {
         ...state,
         visibleTickets: state.visibleTickets + 5,

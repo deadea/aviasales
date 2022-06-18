@@ -5,17 +5,18 @@ import * as actions from '../../redux/actions';
 
 import classes from './Filter.module.scss';
 
-const Filter = ({ text, idx, state, check, unCheck }) => {
+const Filter = ({ text, idx, state, name, check, unCheck }) => {
   const [...checked] = state.checked;
-  let isChecked = checked.length === 0 ? false : checked.includes(idx.toString());
+  let isChecked = checked.length === 0 ? false : checked.includes(name);
   return (
     <>
       <label className={classes.option}>
         <input
           className={classes.checkInput}
           type="checkbox"
+          name={name}
           checked={isChecked}
-          onChange={(e) => (e.target.checked ? check(idx.toString()) : unCheck(idx.toString()))}
+          onChange={(e) => (e.target.checked ? check(e.target.name.toString()) : unCheck(e.target.name.toString()))}
         />
         <span className={classes.checkBox}></span>
         {text}

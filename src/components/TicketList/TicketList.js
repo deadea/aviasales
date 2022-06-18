@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Ticket from '../Ticket';
+import { FILTER_ACTIONS } from '../../redux/filterActions';
 
 import classes from './ticketList.module.scss';
 
@@ -27,15 +28,38 @@ const TicketList = ({ state }) => {
   };
   let unfiltered = [];
   if (state.checked.length > 0) {
-    for (let i = 0; i < state.checked.length; i++) {
-      for (let j = 0; j < state.data.length; j++) {
-        if (
-          state.data[j].segments[0].stops.length === parseInt(state.checked[i] - 1) ||
-          state.data[j].segments[1].stops.length === parseInt(state.checked[i] - 1)
-        ) {
-          unfiltered.push(state.data[j]);
+    if (state.checked.includes(FILTER_ACTIONS.ALL)) {
+      state.data.forEach((element) => {
+        unfiltered.push(element);
+      });
+    }
+    if (state.checked.includes(FILTER_ACTIONS.DIRECT)) {
+      state.data.forEach((element) => {
+        if (element.segments[0].stops.length === 0 || element.segments[1].stops.length === 0) {
+          unfiltered.push(element);
         }
-      }
+      });
+    }
+    if (state.checked.includes(FILTER_ACTIONS.ONE_STOP)) {
+      state.data.forEach((element) => {
+        if (element.segments[0].stops.length === 1 || element.segments[1].stops.length === 1) {
+          unfiltered.push(element);
+        }
+      });
+    }
+    if (state.checked.includes(FILTER_ACTIONS.TWO_STOPS)) {
+      state.data.forEach((element) => {
+        if (element.segments[0].stops.length === 2 || element.segments[1].stops.length === 2) {
+          unfiltered.push(element);
+        }
+      });
+    }
+    if (state.checked.includes(FILTER_ACTIONS.THREE_STOPS)) {
+      state.data.forEach((element) => {
+        if (element.segments[0].stops.length === 3 || element.segments[1].stops.length === 3) {
+          unfiltered.push(element);
+        }
+      });
     }
   }
 

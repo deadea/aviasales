@@ -22,7 +22,7 @@ const Ticket = ({ ticketData }) => {
   const getDuration = (time) => {
     let hours = Math.floor(time / 60);
     let minutes = time - hours * 60;
-    if (minutes < 9) {
+    if (minutes < 10) {
       minutes = `0${minutes}`;
     }
     let result = `${hours}:${minutes}`;

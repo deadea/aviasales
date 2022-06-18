@@ -1,1 +1,7 @@
-export const FILTER_DATA = ['Все', 'Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'];
+export const FILTER_DATA = {
+  ALL: 'Все',
+  DIRECT: 'Без пересадок',
+  ONE_STOP: '1 пересадка',
+  TWO_STOPS: '2 пересадки',
+  THREE_STOPS: '3 пересадки',
+};

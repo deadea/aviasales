@@ -9,12 +9,6 @@ import reducer from './redux/reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-/*const loggerMiddleware = (store) => (next) => (action) => {
-  const result = next(action);
-  console.log('next state', store.getState());
-  return result;
-};*/
-
 const store = createStore(reducer, composeEnhancers(applyMiddleware(reduxThunk))); //, loggerMiddleware)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
